@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header f-color fw-bold">
+        <i class="bi bi-lightning"></i> Lối tắt
+    </div>
+    <div class="card-body l-color">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header s-color" id="flush-headingOne">
+                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <span><i class="bi bi-list-task"></i> Làm bài trắc nghiệm</span>
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse " aria-labelledby="flush-headingOne"
+                     data-bs-parent="#accordionFlushExample">
+                    <ul class="list-group list-group-flush" ng-repeat="sub in subjects | orderBy:'name'">
+                        <a class="list-group-item f-color text-dark"
+                           href="#!multiple-choice/{{sub.Id}}/{{sub.name}}">{{sub.name}}</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header s-color" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <i class="bi bi-award-fill"></i> Trắc nghiệm
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                     data-bs-parent="#accordionFlushExample">
+                    <ul class="list-group list-group-flush">
+                        <a class="list-group-item f-color text-dark" href="#">🎖 Huy hiệu đạt được</a>
+                        <a class="list-group-item f-color text-dark" href="#">
+                            <i class="bi bi-eye-fill"></i> Xem lại kết quả
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

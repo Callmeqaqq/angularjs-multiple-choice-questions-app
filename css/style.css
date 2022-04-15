@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D&family=Smooch+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'K2D', sans-serif;
+}
+
+header {
+    position: relative;
+    height: 100px;
+}
+
+nav.row {
+    height: 60px;
+}
+
+article {
+    min-height: 100vh;
+}
+
+footer {
+    height: 50px;
+}
+
+.row article {
+    min-height: 300px;
+}
+
+.row aside {
+    min-height: 300px;
+}
+
+.shopping-mall {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-variant: small-caps;
+}
+
+.shopping-mall h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 0.3px;
+    text-shadow: 2px 2px 2px black;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0;
+    margin: 0;
+    width: 50%;
+}
+
+.shopping-mall h5 {
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+.f-color {
+    background-color: #98DDCA;
+}
+
+.s-color {
+    background-color: rgba(213, 236, 194, 0.90);
+}
+
+.t-color {
+    background-color: #FFD3B4;
+}
+
+.l-color {
+    background-color: #FFAAA7;
+}
+
+article .carousel button {
+    width: 30px;
+    height: 8px;
+    margin: 2px 5px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0.411);
+}
+
+body {
+    background: url('../img/What-are-Technology-Controls.webp') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.border-top-left {
+    border-top-left-radius: 30px;
+}
+
+.border-top-right {
+    border-top-right-radius: 30px;
+}
+
+.border-bottom-left {
+    border-bottom-left-radius: 30px
+}
+
+.border-bottom-right {
+    border-bottom-right-radius: 30px;
+}

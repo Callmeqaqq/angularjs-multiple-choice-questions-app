@@ -1,0 +1,74 @@
+<h3 class="text-center mb-4 text-uppercase fw-bold">{{nameSUB}}</h3>
+<div ng-if="handed !== true">
+    <div class="card f-color">
+        <div class="card-header fw-bold">
+            Câu {{currentIndex + 1}}: {{currentQuestion.Text}}
+        </div>
+        <div class="card-body">
+            <p class="card-text" ng-repeat="choice in currentQuestion.Answers">
+                <label>
+                    <input type="radio" name="choice" value="{{choice.Id}}"
+                           ng-checked="selectedElement == choice.Id"
+                           ng-click="choiceSelected(choice.Id)">
+                    {{choice.Text}}
+                </label>
+            </p>
+        </div>
+        <div class="card-footer text-dark fst-italic d-flex justify-content-between">
+            <span>Điểm của câu hỏi: {{currentQuestion.Marks}} điểm</span>
+            <span class="text-danger fw-bold">Time: {{renderTime}}</span>
+            <span>Tổng số câu hỏi: {{listTenQuestions.length}}</span>
+        </div>
+    </div>
+    <div class="card-body text-center">
+        <div class="">
+            <button class="btn btn-danger text-white w-auto" ng-if="first !== true" ng-click="firstQuestion()"><i
+                    class="bi bi-arrow-bar-left"></i> First
+            </button>
+            <button class="btn btn-danger text-white w-auto" ng-if="first !== true" ng-click="prev()"><i
+                    class="bi bi-arrow-left-square"></i> Pre
+            </button>
+            <button class="btn btn-danger text-white w-auto" ng-if="last !== true" ng-click="next()">Next <i
+                    class="bi bi-arrow-right-square"></i></button>
+            <button class="btn btn-danger text-white w-auto" ng-if="last !== true" ng-click="lastQuestion()">Last <i
+                    class="bi bi-arrow-bar-right"></i></button>
+            <button class="btn btn-danger text-white w-25" ng-if="last === true" ng-click="handIn()">Hand in <i
+                    class="bi bi-upload"></i></button>
+        </div>
+    </div>
+</div>
+
+<div class="alert f-color" role="alert" ng-if="handed === true">
+    <h3 class="text-center mb-4">Bạn đã làm xong bộ câu hỏi này.</h3>
+    <p class="text-center">Điểm của bạn là {{totalPoint}}/10 <i class="bi bi-pen-fill"></i> <i
+            class="bi bi-dash-lg"></i> Thời gian làm bài: {{timeHanded}} <i class="bi bi-stopwatch-fill"></i></p>
+    <div class="button-handed d-flex justify-content-evenly">
+        <button class="btn btn-danger text-white w-25" ng-click="tryAgain()"><i class="bi bi-arrow-clockwise"></i> Try
+            again
+        </button>
+        <button class="btn btn-danger text-white w-25" ng-click="showAnswer()"><i class="bi bi-view-list"></i> Show
+            answer
+        </button>
+    </div>
+    <div ng-if="historyQuestions" ng-repeat="questions in historyQuestions.answers">
+        <div class="pt-3">
+            <div class="h-100 p-4 border rounded-3 s-color">
+                <h4 class="mb-3">{{questions.Text}}</h4>
+                <p ng-repeat="single in questions.Answers" ng-if="single.Id === questions.AnswerId">
+                    Đáp án đúng: <span class="fw-bold">{{single.Text}}</span>
+                </p>
+                <p class="text-success"
+                   ng-repeat="single in historyRightAnswer"
+                   ng-if="single.answer === questions.AnswerId">
+                    <i class="bi bi-check-square"></i> Bạn chọn đúng
+                </p>
+                <p class="text-danger"
+                   ng-repeat="single in historyWrongAnswer"
+                   ng-if="single.questionId === questions.Id">
+                    <i class="bi bi-x-square"></i> Bạn chọn sai
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

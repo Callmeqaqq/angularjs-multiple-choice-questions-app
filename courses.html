@@ -1,0 +1,27 @@
+<h1 class="text-center mb-4">Bộ câu hỏi trắc nghiệm</h1>
+<div class="row">
+    <div class="col-sm-6" ng-repeat="sub in subjects | orderBy:'Id'|limitTo:4:start">
+        <div class="card border-success mb-3">
+            <div class="card-header border-success f-color">
+                <h6 class="text-center m-0 p-0 fw-bold">{{sub.name}}</h6>
+            </div>
+            <div class="card-body text-success t-color">
+                <img style="width: 100%;" src="img/{{sub.Logo}}" alt="{{sub.Id}}">
+            </div>
+            <div class="card-footer border-success text-center f-color">
+                <a class="text-dark text-decoration-none btn fw-bold l-color w-50"
+                   href="#!multiple-choice/{{sub.Id}}/{{sub.name}}">
+                    <i class="bi bi-code-square"></i> Làm trắc nghiệm <i class="bi bi-code-square"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body text-center">
+        <button class="btn btn-danger text-white w-25 me-3" ng-if="start !== 0" ng-click="prevPage()">
+            <i class="bi bi-arrow-left-square"></i> Pre
+        </button>
+        <button class="btn btn-danger text-white w-25 ms-3" ng-if="start < subjects.length -1" ng-click="nextPage()">
+            Next <i class="bi bi-arrow-right-square"></i>
+        </button>
+    </div>
+</div>
